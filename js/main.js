@@ -15,4 +15,11 @@ $(document).ready(function(){
     }, 2000);
     });
     
+    
+    
+    if($('.bxslider').length > 0){
+        $('.lead-slider').bxSlider();
+    }
+    
+    
 });
