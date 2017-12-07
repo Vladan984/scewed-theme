@@ -19,6 +19,7 @@ $(document).ready(function () {
 
     if ($('.bxslider').length > 0) {
         $('.lead-slider').bxSlider();
+        $('.testimonial-slider').bxSlider();
     }
 
     function animation() {
@@ -61,8 +62,8 @@ $(document).ready(function () {
                 }
             }
         });
-        
-        
+
+
         $('.portfolio-slider').owlCarousel({
             loop: true,
             margin: 10,
@@ -86,6 +87,31 @@ $(document).ready(function () {
             }
         });
     }
+
+
+
+
+    $(window).scroll(function () {
+        var wh = $(window).height();
+        var scroll = $(window).scrollTop();
+        var position = $('.achievements').offset().top;
+        $('.counter-number').each(function () {
+            
+            if (position < wh + scroll - 100) {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            }
+
+
+        });
+    });
 
 
 });
